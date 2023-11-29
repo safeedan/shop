@@ -1,0 +1,102 @@
+.nav-item{
+    Letter-spacing:.2em;
+    font-size:14px;
+    text-transform:uppercase;
+
+}
+.dropdown-item{
+ Letter-spacing:.2em;
+    font-size:14px;
+    text-transform:uppercase;
+}
+body{
+font-family: 'Lato', sans-serif;
+font-family: 'Nunito Sans', sans-serif;
+font-family: 'Open Sans', sans-serif;
+}
+.my_p{
+font-family: 'Lato', sans-serif;
+font-family: 'Nunito Sans', sans-serif;
+font-family: 'Open Sans', sans-serif;
+}
+.my_footer{
+height:320px;
+
+}
+.my_footer p{
+font-size:15px;
+color:white;
+}
+
+/*** category.html***/
+.my row_class{
+padding-top:15px;
+}
+.my_row_class .mx_auto{
+color:black;
+font-size:12px;
+}
+.my_image{
+width:100%;
+
+}
+.my_title{
+font-size:35px;
+text-transform:uppercase;
+letter-spacing:.2em;
+color:#009000;
+}
+.my_image_padding{
+padding:5px;
+}
+.my_bottom_margin{
+margin-bootom:10px;
+}
+.card-body h4{
+font-size:14px;
+text transform:uppercase;
+letter-spacing:.2em
+}
+/***product page ***/
+.my_prod_row_class{
+padding-top:15px;
+padding-bottom:20px;
+}
+.my_prod_row_class .mx_auto{
+color:#ooo;
+font-size:12px;
+text-decoration:none;
+}
+
+.my_prod_text{
+padding-right:20px;
+}
+.my_search_text{
+padding-top;20px;
+}
+
+.my_custom_table{
+min-width:400px;
+font-size:14px;
+}
+.my_custom_thead{
+font-weight:normal;
+text-transform:uppercase;
+letter-spacing:.2em;
+background-color:#009000;
+color:white;
+}
+.custom_a{
+text-decoration:none;
+}
+.custom_icon{
+text-decoration:none;
+color:#868e96 !important;
+}
+.my_custom_button{
+margin-top:5px;
+}
+span{
+font-size:13px;
+color:#009000;
+}

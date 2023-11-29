@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+        {{ product.description|truncatewords:155 }
+{% endblock %}
+{% block title %}
+    {% if category %}
+    {{ product.name }} - SHOPPPY ME Online Shop
+{% endif %}
+{% endblock %}
+{% block body %}
+<div class="row my_prod_row_class">
+    <div class="mx_auto">
+        <p style="font-size:15px;color:darkgreen;"><a class="btn btn-success" href="{{product.category.get_url}}"><i class="fa-solid fa-circle-arrow-left"></i></a>&nbsp;&nbsp;&nbsp;{{product.name}} </p>
+    </div>
+</div>
+<div class="container">
+<br>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+        <div style="min-width:18rem;">
+            <img class="shadow card" src="{{product.image.url}}" alt="{{product.name}}" height="500" width="500">
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 shadow card">
+            <div>
+
+                <p class="text-center" style="font-size:23px;letter-spacing:.2em;padding-top:15px;padding-bottom:10px;color:darkgreen;text-transform:uppercase;"><strong>{{product.name}}</strong></p>
+<!--            <p style="font-size:18px;">Description :</p>-->
+                <p style="font-size:18px;color:green;"><strong>About :</strong></p>
+                <p class="text-justify my_prod_text">&nbsp;&nbsp;&nbsp;&nbsp; {{product.description}}</p>
+             <p class="text-center" style="font-size:25px;color:darkgreen;"><strong><i class="fa-solid fa-indian-rupee-sign"></i> {{product.price}}</strong></p>
+          <br>  {% if product.stock <= 0 %}
+                <center> <p class="btn btn-danger"><b>Out Of Stock</b></p></center>
+            {% else %}
+               <center><a class="btn btn-success" href="{% url 'cart:add_cart' product.id %}">Add to Cart &nbsp;<i class="fa-solid fa-cart-shopping"></i> </a></center>
+            {% endif %}
+                <br>
+                <br>
+
+        </div>
+    </div>
+    </div>
+</div><br><br>
+                <br><br>
+
+{% endblock %}

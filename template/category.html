@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    {% if category %}
+        {{ category.description|truncatewords:155 }}
+    {% else %}
+        Welcome to ShoppyMe Online Shop where you can buy different product Items.......
+    {% endif %}
+{% endblock %}
+
+{% block title %}
+    {% if category %}
+    {{ category.name }} - SHOPPPY ME Online Shop
+{% else %}
+    See our new collections -SHOPPY ME Online Shop
+{% endif %}
+{% endblock %}
+
+{% block body %}
+{% if category %}
+<div>
+    <div class="row my_row_class">
+        <div class="mx_auto">
+    <p>
+        <a class="btn btn-success" href="{% url 'shop:allProdCat' %}"><i class="fa-solid fa-circle-arrow-left"></i>  </a>
+    </p>
+</div>
+    </div>
+</div>
+{% endif %}
+<div class="mx_auto">
+{% if category %}
+   <h1 class="text-center my_title">
+      <strong>{{category.name}}</strong>
+    </h1>
+<img  src="{{category.image.url}}" alt="{{category.name}}" height="450" width="100%">
+</div>
+<br>
+<div>
+    <p class="text-justify">{{category.description}}</p>
+</div>
+<h1 style="font-size:28px;text-transform:uppercase;letter-spacing:.2em;padding-top:15px;padding-bottom:10px;color:forestgreen;" class="text-center"><strong>OUR {{category.name}} COLLECTIONS</strong></h1>
+<BR>
+{% else %}
+<div>
+<img class="my_image my_image_padding" src="{% static 'img/b3.png' %}" alt="our products" height="700" width="1400">
+</div>
+<br>
+<div>
+    <h1 class="text-center my_title">
+        <b>Our Plant Collections</b>
+    </h1>
+    <p class="text-justify my_p">Welcome to our online Plant House, where you can find a wide variety of natural plants available for purchase. We specialize in providing a seamless plant online shopping experience, making it convenient for you to buy plants online and have them delivered right to your doorstep. </p>
+</div><br>
+{% endif %}
+<div class="container">
+    <div class="row mx_auto">
+        {% for product in products.object_list %}
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-4  xol-lg-4">
+            <div class="shadow card text-center" style="min-width:18rem;">
+                <a href="{{product.get_url}}" ><img style="height:20rem;" class="card-img-top my_image" src="{{product.image.url}}" alt="{{product.name}}"> </a>
+                <div class="card-body">
+                    <h4>{{product.name}}</h4>
+                    <p>₹ {{product.price}}</p>
+                 </div>
+            </div><br>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mx_auto">
+        {% if products.paginator.num_pages > 1 %}
+        <hr>
+        <div class="text-center">
+            {% for pg in products.paginator.page_range %}
+            <a href="?page={{pg}}" class="btn btn-success btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div><br>
+</div>
+{% endblock %}
